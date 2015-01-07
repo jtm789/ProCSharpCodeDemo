@@ -1,0 +1,27 @@
+重载：方法名一样，参数不一样或者类型不一样。
+readonly 关键字比const灵活，readonly可以在构造函数中给只读字段赋值。
+struct有默认的构造函数，若自己定义构造函数，不允许无参数的构造函数。
+部分类 partial class TheBigClass{}
+静态类 static class ClassA{
+	public static void HelperMethod(){}
+}
+调用ClassA.HelperMethod();
+ 
+ 如果类有源代码的，可以使用继承，给类添加功能。如果类没有源代码，可以使用扩展方法。
+
+ 扩展方法是静态方法。首先要创建一个静态类，把方法添加为一个静态方法。
+ namespace Wrox
+ {
+ 	public static class MoneyExtension{
+
+ 		public static void AddToAmount(this Money money,decimal amountToAdd){
+
+
+ 		}
+
+ 	}
+ }
+
+ 扩展方法的第一个参数就是要扩展的类型，它放在this关键字的后面。
+ 具体调用 和原来类的方法一样。
+ 如果扩展方法和原来类的方法同名，那就永远用不上。类中任何已有的实例方法优先。
