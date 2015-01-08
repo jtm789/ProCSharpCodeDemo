@@ -2,6 +2,9 @@
 readonly 关键字比const灵活，readonly可以在构造函数中给只读字段赋值。
 struct有默认的构造函数，若自己定义构造函数，不允许无参数的构造函数。
 部分类 partial class TheBigClass{}
+out和ref都可以用于参数列表 void someMethod(string a ,ref int b)
+void someMethod(string a, out int b )//ref 一定要初始化参数列表，out不需要
+
 静态类 static class ClassA{
 	public static void HelperMethod(){}
 }
