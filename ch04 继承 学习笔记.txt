@@ -1,0 +1,57 @@
+ch 04 继承
+
+继承：实现继承和接口 继承
+1.1实现继承
+class MyDerivedClass:MyBaseClass{}
+
+public class MyDerivedClass:MyBaseClass,IInterface1,IInterface2{}
+
+public struct MyDerivedStructr:IInterface1,IInterface2{}//结构可以继承接口，不能继承基类
+
+1.2虚函数
+class MyBaseClass{
+	public virtual string VirtualMethod(){return "base class virtual method";}
+}
+
+class MyDerivedClass:MyBaseClass{
+	public override string VirtualMethod(){
+		return "override method";
+	}
+}
+//成员字段和静态函数都不能声明为virtual
+
+1.3 隐藏基类的方法
+class MyDerivedClass:HisBaseClass{
+	public new int MyGroovyMethod(){
+		return 0;
+	}
+}
+//这样编译器会认为基类的MyGroovyMethod被隐藏，访问MyGroovyMethod，将访问的是MyDerivedClass而非HisBaseClass
+1.4 调用基类的方法  
+base.<MethodName>();
+class CustomerAccount{
+	public virtual decimal Calc(){ return 0.0M;}
+}
+class GoldAccount:CustomerAccount{
+	public void decimal Calc(){ return base.Calc()*0.9M;}
+}
+1.5抽象类和抽象函数
+抽象类和函数声明为abstract,不能实例化，抽象函数不能直接实现，必须在抽象类的派生类中重写。抽象函数本身就相当于virtual,不能加virtual关键字，会出错.
+abstract class Building
+{
+	public abstract decimal Calc();//abstract method
+}
+1.6密封类和密封方法
+类和方法声明为sealed.对于类，表示不能继承，对于方法表示不能重写。
+sealed class FinalClass{}
+class DerivedClass:FinalClass{} //wrong.compile error
+1.7 考虑具体实现的执行顺序
+MyBaseClass customer=new MyDerivedClass();
+//实例化MyDerivedClass
+从MyDerivedClass的构造函数，往上到MyBaseClass的构造函数，往上继续System.Object，object没有任何基类，所以它的构造函数直接执行，然后控制权给MyBaseClass构造函数，MyBaseClass构造函数，初始化MyBaseClass成员变量，结束后把控制权给MyDerivedClass构造函数,MyDerivedClass初始化成员变量。结束之后。MyDerivedClass的构造和初始化就结束。
+
+最终操作结果就是从object开始，然后MyBaseClass，再往下MyDerivedClass。
+1.8派生类的构造函数 ch 4.2.6
+详细看书，重点学。
+1.9接口只是一些方法的声明，不包含实现。它的成员都public的，不允许私有。要添加private等修饰符，可以在实现接口的具体类上。
+类继承接口，必须实现所有接口的声明。
