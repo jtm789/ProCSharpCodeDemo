@@ -36,7 +36,8 @@ class GoldAccount:CustomerAccount{
 	public void decimal Calc(){ return base.Calc()*0.9M;}
 }
 1.5抽象类和抽象函数
-抽象类和函数声明为abstract,不能实例化，抽象函数不能直接实现，必须在抽象类的派生类中重写。抽象函数本身就相当于virtual,不能加virtual关键字，会出错.
+抽象类和函数声明为abstract,不能实例化，抽象函数不能直接实现，必须在抽象类的派生类中重写。
+抽象函数本身就相当于virtual,不能加virtual关键字，会出错.
 abstract class Building
 {
 	public abstract decimal Calc();//abstract method
@@ -48,7 +49,10 @@ class DerivedClass:FinalClass{} //wrong.compile error
 1.7 考虑具体实现的执行顺序
 MyBaseClass customer=new MyDerivedClass();
 //实例化MyDerivedClass
-从MyDerivedClass的构造函数，往上到MyBaseClass的构造函数，往上继续System.Object，object没有任何基类，所以它的构造函数直接执行，然后控制权给MyBaseClass构造函数，MyBaseClass构造函数，初始化MyBaseClass成员变量，结束后把控制权给MyDerivedClass构造函数,MyDerivedClass初始化成员变量。结束之后。MyDerivedClass的构造和初始化就结束。
+从MyDerivedClass的构造函数，往上到MyBaseClass的构造函数，往上继续System.Object，
+object没有任何基类，所以它的构造函数直接执行，然后控制权给MyBaseClass构造函数，MyBaseClass构造函数
+初始化MyBaseClass成员变量，结束后把控制权给MyDerivedClass构造函数,MyDerivedClass初始化成员变量。
+结束之后。MyDerivedClass的构造和初始化就结束。
 
 最终操作结果就是从object开始，然后MyBaseClass，再往下MyDerivedClass。
 1.8派生类的构造函数 ch 4.2.6
