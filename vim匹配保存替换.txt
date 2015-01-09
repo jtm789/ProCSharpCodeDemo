@@ -1,0 +1,3 @@
+1.匹配 /regx/ 如/public \(.*\)(.*)/ 找到 public void f()
+2.保存匹配的 v/regx/d 
+3.替换 ：1,$ s/\(.*\)/BBB/g   将（xxx）替换了，1表示从第一行开始
