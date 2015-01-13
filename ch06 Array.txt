@@ -1,0 +1,24 @@
+ch06 数组
+6.1.1数组声明
+int[] myArray;
+6.1.2数组初始化
+myArray = new int[4];
+int[] myArray = new int[4];
+int[] myArray = new int[]{1,2,3,4};
+简洁写法
+int[] myArray={1,2,3,4};
+
+数组访问
+int[] myArray=new int[]{1,2,3,4};
+int v1=myArray[0];
+int v2=myArray[1];
+myArray[3] = 44;
+
+//循环
+for( int i = 0; i < myArray.Length; i++){
+	Console.WriteLine(myArray[i]);
+}
+或
+foreach( var val in myArray){
+	Console.WriteLine(val);
+}
