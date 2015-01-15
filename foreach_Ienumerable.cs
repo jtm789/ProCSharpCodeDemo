@@ -49,7 +49,8 @@ public class MusicTitles{
 			yield return names[i];
 		}
 	}
-	
+	//类支持的默认迭代是定义为返回IEnumerator的GetEnumerator()方法，命名的迭代返回
+	//IEnumerable。
 	public IEnumerable<string> Reverse(){
 		for(int i=3;i>=0;i--){
 			yield return names[i];
