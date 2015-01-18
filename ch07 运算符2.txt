@@ -1,0 +1,30 @@
+ch07 运算符2
+//Is
+int i=10;
+if(i is object){
+	Console.WriteLine("i is an object");	
+}
+//as 用于执行引用类型的显示类型转换。
+//as 如果可以转换就，转换；转换不成功就返回null
+object o1="some string";
+object o2=5;
+string s1=o1 as string;//s1="some string";
+string s2=o2 as string;//s2=null;
+
+//sizeof 返回字节数
+..
+//typeof 返回Type
+..
+//nullable
+int?a=null;
+int?b=a+4;//b=null
+int?c=a*5;//c=null 只要一个操作数null,结果就是null
+
+//比较可空类型,一个操作数null结果就是false。在一个比较条件是false，则对立面可能是Null，或者true.
+
+//空合并运算(??)
+int b;
+b=a??10;
+
+
+
